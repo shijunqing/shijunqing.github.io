@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="时俊青">
+
+
+    <meta name="subtitle" content="我们仰望同一片天空，却看着不同的地方">
+
+
+    <meta name="description" content="这是一个来自一个计算机爱好者小白利用Hexo搭建的博客">
+
+
+
+<title>C语言自学笔记 | 时俊青&#39;Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">shijunqing&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/posts">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">shijunqing&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/posts">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">C语言自学笔记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">时俊青</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">四月 19, 2020&nbsp;&nbsp;12:05:59</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="《C语言自学笔记》"><a href="#《C语言自学笔记》" class="headerlink" title="《C语言自学笔记》"></a>《C语言自学笔记》</h1><h2 id="什么是程序？"><a href="#什么是程序？" class="headerlink" title="什么是程序？"></a>什么是程序？</h2><p><strong>程序</strong>：为了让计算机执行某些操作或解决某个问题而编写的一系列有序指令的集合。<br>c语言是目前世界使用非常广泛的编程语言（2018）<br>c语言的两个重要版本：1.ANSI（标准C）C89 2.C99<br><strong>C语言的特点</strong><br>（1）代码级的跨平台：由于标准的存在，使得几乎同样的C代码可用于多种操作系统。<br>（2）使允许直接访问物理地址，对硬件进行操作：由于C语言允许直接访问物理地址，<br>可以直接对硬件进行操作，因此它具有高级语言的功能，又具有低级语言的许多功能，<br>c语言可用来写系统软件。<br>（3）C语言是一个结构化程序设计，具有变量作用域（variable scope）以及递归<br>功能的过程式语言。<br>（4）C语言传递参数可以是值传递，也可以传递指针。<br>（5）C语言中，没有对象，不同变量类型可以用结构体组合在一起。<br>（6）预编译处理，生成目标代码质量高，程序执行效率高。<br><strong>C语言运行机制简述</strong><br>（1）编辑：编写我们的.c文件，就是源代码<br>（2）编译：将.c程序翻译成目标文件（.obj）//在计算机底层执行<br>（3）链接：将目标文件.obj生成可执行文件（.exe）//计算机底层执行<br>（4）运行：执行.exe文件，得到结果</p>
+<h2 id="一-C转义字符"><a href="#一-C转义字符" class="headerlink" title="一.C转义字符"></a>一.C转义字符</h2><p><strong>常用的转义字符</strong><br>1.\t：一个制表位，实现对齐功能<br>2.\n：换行符<br>3.\：一个<br>4.&quot;：一个”<br>5.&#39;：一个’<br>6.\r：一个回车</p>
+<h2 id="二-注释"><a href="#二-注释" class="headerlink" title="二.注释"></a>二.注释</h2><p><strong>介绍</strong>：用于注解说明解释程序的文字就是注释，注释提高了代码的阅读性；注释是一个程序员必须具有的良好编程习惯，将自己的思想通过注释先整理出来，再用代码去体现<br><strong>C中的注释类型</strong><br>（1）单行注释<br>基本格式：//注释文字<br>（2）多行注释<br>/<em>注释文字</em>/<br><strong>注意事项</strong><br>1.对于单行和块注释，被注释的文字，不会被执行。<br>2.块注释里面不允许有块注释的嵌套<br>3.快捷键可以配置成自己的习惯</p>
+<h2 id="三-变量"><a href="#三-变量" class="headerlink" title="三.变量"></a>三.变量</h2><p><strong>变量是程序的基本组成单位</strong><br><strong>概念</strong>：变量相当于内存中的一个数据存储空间的表示，你可以把变量看作是一房<br>间的门牌号，通过门牌号我们可以找到房间，而通过变量我们可以访问到变量值。<br><strong>注意事项</strong><br>（1）变量表示内存中的一个存储区域（不同数据类型，占用空间的大小不一样）<br>（2）该区域有自己的名称和类型<br>（3）变量必须先声明，后使用<br>（4）该区域的数据可以在同一类型范围内不断变化<br>（5）变量在同一个作用域内不能重名<br>（6）变量三要素（变量名+值+数据类型）</p>
+<h2 id="四-变量的数据类型"><a href="#四-变量的数据类型" class="headerlink" title="四.变量的数据类型"></a>四.变量的数据类型</h2><p>每一种数据都定义了 明确的数据类型，在内训中分配了不同大小的内存空间（使用<br>字节多少表示）。<br>注意：在C中，没有字符串类型，使用字符数组表示字符串。在不同的系统上部分数据<br>类型字节长度不一样。</p>
+<h2 id="五-整数类型"><a href="#五-整数类型" class="headerlink" title="五.整数类型"></a>五.整数类型</h2><p>（1）各种类型的存储大小与操作系统，系统位数和编译器有关，目前通用的以64位<br>系统为主<br>（2）在实际工作中，C程序通常运行在linux/unix操作系统下。<br>（3）C语言的整型类型，分为有符号signed和无符号unsigned两种，默认是signed<br>（4）C语言中整型常量声明为int型，除非不足以表示大数，才使用long long<br>（5）bit（位）：计算机中的最小存储单位。byte（字节）：计算机中的基本存储单元。<br>1byte=8bit.</p>
+<h2 id="六-浮点数类型"><a href="#六-浮点数类型" class="headerlink" title="六.浮点数类型"></a>六.浮点数类型</h2><p>（1）浮点型常量默认为double型，声明float型常量，须后加’f’或’F’<br>（2）浮点型常量有两种表示方式<br>    十进制数类型：如：5.12     512.0f     .512<br>    科学计数法形式：如：5.12e2    5.12E-2<br>（3）通常情况下，应该使用double型，因为它比float型更精准<br>（4）printf(“d1=%f”,d1);//输出时保留小数点6位</p>
+<h2 id="七-字符类型"><a href="#七-字符类型" class="headerlink" title="七.字符类型"></a>七.字符类型</h2><p>基本介绍：字符类型可以表示单个字符，字符类型char，char是1个字节（可以存放<br>字母或者数字），多个字符称为字符串，在C语言中，使用char数组表示，数组不是<br>基本数据类型，而是构造类型。 </p>
+<h2 id="八-基本数据类型转换"><a href="#八-基本数据类型转换" class="headerlink" title="八.基本数据类型转换"></a>八.基本数据类型转换</h2><p><strong>1.自动类型转换</strong><br>介绍：当C程序在进行赋值或者运算时，精度小的类型自动转换为精度大的数据类型<br>这个就是自动类型转换<br><strong>2.强制数据类型转换</strong><br>（1）介绍：将精度高的数据类型转换为精度小的数据类型。使用时要加上强制转换符（）<br>但可能造成精度降低或溢出。<br>（2）强制类型转换一般格式如下：<br>（类型名）表达式<br>这种强制类型转换操作并不改变操作数本身<br>（3）强制类型转换细节说明<br>1）当进行数据的从精度高–&gt;到精度低，就需要使用到强制转换<br>2）强制转换符号只针对最近的操作数有效，往往会使用小括号提升优先级 </p>
+<h2 id="九-指针入门"><a href="#九-指针入门" class="headerlink" title="九.指针入门"></a>九.指针入门</h2><p>简单来说，指针表示一个地址<br>    int ptr = &amp; num;<br>    1.int 表示类型为指针类型<br>    2.名称ptr， ptr就是一个int 类型<br>    3.ptr指向了一个int类型的变量的地址<br>指针变量本身也有地址<br>==#include &lt;stdio.h&gt;<br>void main()<br>{<br>    int num = 1;<br>    int ptr = &num;<br>    //输出指针地址要使用 %p 输出格式<br>    //&amp;num表示num这个变量对应的地址<br>    printf(“\nnum的值=%d num的地址=%p”,num,&amp;num);<br>    //指针变量本身也有地址 &amp;ptr<br>    //指针变量，存放的地址 ptr<br>    //获取指针指向的值 <em>ptr<br>    printf(“\nptr的地址=%p ptr存放的值是一个地址为=%p ptr指向的值=%d”, &amp;ptr, ptr,</em>ptr);<br>    getchar();<br>}==<br><strong>注意指针的类型和该指针指向的变量类型是对应关系</strong><br>细节注意<br>1）基本类型，都有对应的指针类型，类型为&lt;数据类型 *&gt; ，比如int对应的指针就是int *<br>float对应的指针类型就是float * 。</p>
+<h2 id="十-值传递和地址传递"><a href="#十-值传递和地址传递" class="headerlink" title="十.值传递和地址传递"></a>十.值传递和地址传递</h2><p>C语言传递参数（或者赋值）可以是值传递，也可以是传递指针，传递指针也叫<em>地址传递</em><br>1）默认传递值的类型：基本数据类型（整型类型 ，小数类型，字符类型），结构体<br>共用体。<br>2）默认传递地址的类型：指针，数组。<br>1)值传递：将变量指向的存储内容，在传递/赋值时，拷贝一份给接收变量<br>2)地址传递也叫指针传递：如果是指针，就将指针变量存储的地址，传递给接受变量<br>，如果是数组，就将数组的首地址传递给接受变量。</p>
+<h2 id="十一-常量"><a href="#十一-常量" class="headerlink" title="十一.常量"></a>十一.常量</h2><p>（1）常量是固定值，在程序执行期间不能改变。这些固定值，又叫做字面量。<br>（2）常量可以是任何的基本数据类型。<br>（3）常量的值在定义后不能进行修改。<br><strong>定义常量的两种方式</strong><br>（1）使用#define 预处理器<br>    形式：#define 常量名  常量值<br>    实例：<br>   == #include &lt;stdio.h&gt;<br>#define PI 3.14   //定义常量<br>int main()<br>{<br>    double area;<br>    double r=1.2; //半径<br>    area= PI<em>r</em>r;<br>    printf(“面积是:=%.2f”,area);<br>    getchar();<br>    return 0;<br>}==</p>
+<p>（2）使用const关键字<br>实例：<br>==#include &lt;stdio.h&gt;<br>const double PI = 3.14;   //定义常量<br>void main()<br>{<br>    double area;<br>    double r=1.2;<br>    area= PI<em>r</em>r;<br>    printf(“面积是=%.2f”,area);<br>    getchar();<br>}==</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>时俊青</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/04/19/C%E8%AF%AD%E8%A8%80%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">http://yoursite.com/2020/04/19/C%E8%AF%AD%E8%A8%80%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/04/04/hello-world/">初次见面,你好!</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 时俊青 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
